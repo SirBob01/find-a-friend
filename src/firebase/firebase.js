@@ -32,6 +32,13 @@ class Firebase {
             .catch(this.debugError);
     }
 
+    readDatabase(root, event, callback) {
+        // Listens to any events that may occur to the database
+        // If the specified event occurs, execute the callback function
+        var reference = this.database.ref(root);
+        reference.on(event, callback);
+    }
+
     onUserActive(callback, fallback=null) {
         this.auth.onAuthStateChanged((userInstance) => {
             if(userInstance != null) {
