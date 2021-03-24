@@ -71,6 +71,9 @@ class LogIn extends React.Component {
     if (this.state.signup) {
       return <Redirect to="./signup" />;
     }
+    if (this.state.success) {
+      return <Redirect to="./home"/>;
+    }
     return (
       <div>
         <AppBar position="static">
